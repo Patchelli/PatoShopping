@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using PatoShopping.API.Model.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,6 +11,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+builder.Services.AddDbContext<DbContextApp>(options =>
+{
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
