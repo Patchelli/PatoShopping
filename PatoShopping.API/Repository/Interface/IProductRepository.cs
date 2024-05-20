@@ -5,9 +5,9 @@ namespace PatoShopping.API.Repository.Interface
     public interface IProductRepository
     {
         Task<IEnumerable<ProductVO>> GetAll();
-        Task<IEnumerable<ProductVO>> FindById(long id);
-        Task<IEnumerable<ProductVO>> Create(ProductVO product);
-        Task<IEnumerable<ProductVO>> Update(ProductVO product);
-        Task<IEnumerable<ProductVO>> DeleteById(long id);
+        Task<ProductVO> FindById(long id);
+        Task<ProductVO> Create(ProductVO product);
+        Task<ProductVO> Update(ProductVO product);
+        Task<ProductVO> DeleteById(long id);
     }
 }
