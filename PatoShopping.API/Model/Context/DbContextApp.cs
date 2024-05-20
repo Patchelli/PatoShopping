@@ -1,5 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PatoShopping.API.Model.Base;
+﻿
+
+using Microsoft.EntityFrameworkCore;
 
 namespace PatoShopping.API.Model.Context
 {
@@ -9,9 +10,6 @@ namespace PatoShopping.API.Model.Context
         {
             
         }
-        public DbContextApp()
-        {
-            
-        }
+        public DbSet<Product> Products { get; set; }
     }
 }
