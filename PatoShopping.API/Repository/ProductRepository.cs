@@ -27,7 +27,7 @@ namespace PatoShopping.API.Repository
 
         public async Task<ProductVO> FindById(long id)
         {
-            Product product = await _contextApp.Products.Where(x => x.Id == id).FirstOrDefaultAsync();
+            Product product = await _contextApp.Products.Where(x => x.Id == id).FirstOrDefaultAsync()?? new Product();
             return _mapper.Map<ProductVO>(product);
         }
 
@@ -53,15 +53,15 @@ namespace PatoShopping.API.Repository
         {
             try
             {
-                Product product = await _contextApp.Products.Where(x => x.Id == id).FirstOrDefaultAsync();
-                if (product != null) return false;
+                Product product = await _contextApp.Products.Where(x => x.Id == id).FirstOrDefaultAsync()?? new Product();
+                if (product.Id <= 0) return false;
 
                 _contextApp.Products.Remove(product);
                 await _contextApp.SaveChangesAsync(true);
 
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

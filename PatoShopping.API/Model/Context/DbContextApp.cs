@@ -11,5 +11,6 @@ namespace PatoShopping.API.Model.Context
             
         }
         public DbSet<Product> Products { get; set; }
+
     }
 }

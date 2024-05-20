@@ -8,6 +8,6 @@ namespace PatoShopping.API.Repository.Interface
         Task<ProductVO> FindById(long id);
         Task<ProductVO> Create(ProductVO product);
         Task<ProductVO> Update(ProductVO product);
-        Task<ProductVO> DeleteById(long id);
+        Task<bool> DeleteById(long id);
     }
 }
