@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PatoShopping.API\PatoShopping.API.csproj" />
+  </ItemGroup>
+
 </Project>
